@@ -2,10 +2,10 @@ import { useLocation } from 'react-router-dom'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import CreditForm from '../components/CreditForm';
-import fee from '../consts/fee';
+import fee from '../database/fee';
 import CreditCard from '../components/CreditCard';
 
-function Order() {
+function Checkout() {
   const location = useLocation();
   const { ticketInfo, amount, cardInfo } = location.state
 
@@ -36,6 +36,10 @@ function Order() {
    setCards([...cards, {issur, ...cardInfo}])
   }
 
+  const handleClose = () => {
+    setFormVisible(false)
+  }
+  
   const { issur } = cards[seletctedCardId]
   const { price, notes, name } = ticketInfo
   const selectedFee = fee[issur]
@@ -88,13 +92,15 @@ function Order() {
         
         <button>Place Order</button>
       </div>
-      { formVisible && <CreditForm 
-        connectCard={connectCard} 
-        initialValue ={{ name: '', number: '', expiry: '', cvc: ''}}
-        initialAmount = {null}
-    /> }
+        <CreditForm 
+          connectCard={connectCard} 
+          initialValue ={{ name: '', number: '', expiry: '', cvc: ''}}
+          initialAmount = {null}
+          isVisible={formVisible}
+          onClose={handleClose}
+      /> 
     </div>
   );
 }
 
-export default Order;
+export default Checkout;

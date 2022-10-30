@@ -1,0 +1,182 @@
+.main {
+  padding: 50px 0;
+  &-title {
+    text-align: center;
+    color: var(--white-gr);
+    font-size: 40px;
+    margin-bottom: 70px;
+    svg {
+      color: var(--yellow);
+    }
+  }
+  .tickets-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+    z-index: 2;
+  }
+  .ticket {
+    text-align: center;
+    &.selected {
+      .ticket-item {
+        transform: translateY(-10px);
+        transition: all 250ms linear;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 0;
+          z-index: -1;
+          display: block;
+          background-color: var(--white-gr);
+          opacity: 0.4;
+          transition: all 250ms linear;
+        }
+      }
+    }
+    &-item {
+        position: relative;
+        width: 200px;
+        display: inline-block;
+        cursor: pointer;
+        padding: 50px 0;
+        text-align: center;
+        margin: 5px;
+        border-radius: 0;
+        background-color: transparent;
+        overflow: hidden;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: var(--dark-blue);
+        transition: all 250ms linear;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          display: block;
+          background-image: linear-gradient(335deg, var(--yellow), var(--yellow-2));
+        }
+        &__description {
+          margin-bottom: 15px;
+          &.title {
+            position: absolute;
+            padding: 0 10px;
+            width: 100%;
+            font-size: 18px;
+          }
+          &.duration {
+            margin-top: 55px;
+          }
+          &.price {
+            font-weight: 900;
+            font-size: 40px;
+            line-height: 1;
+            text-transform: uppercase;
+            color: var(--dark-blue);
+            transition: all 250ms linear;
+            text-shadow: 1px 2px 4px var(--yellow), 0 0 0 #000, 1px 2px 4px var(--yellow);
+            margin-bottom: 30px;
+            sup {
+              font-size: 26px;
+              line-height: 1;
+              letter-spacing: 4px;
+            }
+          }
+          &.clock {
+            font-size: 30px;
+            line-height: 1;
+            color: var(--dark-blue);
+            display: block;
+            transition: all 250ms linear;
+            padding-top: 65px;
+          }
+        } 
+    }
+    &-border {
+      position: absolute;
+      width: 100%;
+      display: block;
+      top: 0;
+      transform: translateY(-50%);
+      &:last-child {
+        top: 100%;
+      }
+      z-index: 10;
+    }
+    &-section {
+      position: relative;
+      width: 100%;
+      display: block;
+      z-index: 2;
+    }
+    &-dots {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      display: block;
+      border-radius: 50%;
+      top: 0;
+      transform: translateY(-50%);
+      background-color: var(--dark-blue);
+      
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          left: calc($i * 5%);
+        }
+      }
+      &:first-child {
+        width: 30px;
+        height: 30px;
+        left: -15px;
+      }
+      &:last-child {
+        width: 30px;
+        height: 30px;
+        right: -12px;
+        left: inherit;
+      }
+    }
+    margin-bottom: 30px;
+  }
+  .btn {
+    
+    // border-radius: 4px;
+    // height: 48px;
+    // font-size: 16px;
+    // font-weight: 700;
+    // padding: 0 35px;
+    // letter-spacing: 0.2px;
+    // display: inline-flex;
+    // align-items: center;
+    // justify-content: center;
+    // text-align: center;
+    // border: none;
+    // color: var(--dark-blue);
+    // background-color: var(--yellow);
+    // transition: all 200ms linear;
+    // cursor: pointer;
+    &-buy {
+      position: fixed;
+      top: 60%;
+      left: 0;
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+      svg {
+        margin-right: 20px;
+      }
+      &:hover {
+        color: var(--yellow);
+        background-color: #000;
+        box-shadow: 0 6px 20px 0 rgb(255 235 167 / 25%);
+      }
+    }
+  }
+}

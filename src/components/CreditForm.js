@@ -1,7 +1,7 @@
-
 import { useState } from 'react'
 import Card from 'react-credit-cards'
 import {NotificationContainer, NotificationManager} from 'react-notifications'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   formatCreditCardNumber,
@@ -9,7 +9,7 @@ import {
   formatExpirationDate,
 } from '../utils'
 
-function CreditForm({connectCard, initialValue, initialAmount, customRef}) {
+function CreditForm({connectCard, initialValue, initialAmount, customRef, isVisible, onClose}) {
   const [cardInfo, setCardInfo] = useState({ ...initialValue})
 
   const [focused, setFocused] = useState()
@@ -58,68 +58,68 @@ function CreditForm({connectCard, initialValue, initialAmount, customRef}) {
   }
 
   return (
-    <div className="card-container" ref={customRef}>
-      {
-       amount && <div className='amount'> 
-          <p>Amount</p>
-          <input 
-            type='number'
-            name='amount' 
-            value={amount}
-            onChange={handleInputChange} 
-          />
-        </div>
-      }  
-      <Card
-        number={cardInfo.number}
-        name={cardInfo.name}
-        expiry={cardInfo.expiry}
-        cvc={cardInfo.cvc}
-        focused={focused}
-        callback={handleCallback}
-      />
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="tel"
-            name="number"
-            className="form-control"
-            placeholder="Card Number"
-            pattern="[\d| ]{16,22}"
-            required
-            value={cardInfo.number}
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-          />
-          <small>E.g.: 49..., 51..., 36..., 37...</small>
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            name="name"
-            className="form-control"
-            placeholder="Name"
-            required
-            value={cardInfo.name}
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-          />
-        </div>
-        <div className="row">
-          <div className="col-6">
+    <div className={isVisible ? 'modal visible': 'modal'} ref={customRef}>
+      <div className='modal-wrapper'>
+        <h2 className='modal-wrapper__title'>Check <FontAwesomeIcon icon='fa-credit-card' /> Payment</h2>
+        {
+        amount && <div className='modal-wrapper__amount'> 
+            <p>Ticket Quantity</p>
+            <input 
+              type='number'
+              name='amount' 
+              value={amount}
+              onChange={handleInputChange} 
+            />
+          </div>
+        }  
+        <Card
+          number={cardInfo.number}
+          name={cardInfo.name}
+          expiry={cardInfo.expiry}
+          cvc={cardInfo.cvc}
+          focused={focused}
+          callback={handleCallback}
+        />
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
             <input
               type="tel"
-              name="expiry"
+              name="number"
               className="form-control"
-              placeholder="Valid Thru"
-              pattern="\d\d/\d\d"
+              placeholder="Card Number"
+              pattern="[\d| ]{16,22}"
               required
-              value={cardInfo.expiry}
+              value={cardInfo.number}
               onChange={handleInputChange}
               onFocus={handleInputFocus}
             />
           </div>
-          <div className="col-6">
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              className="form-control"
+              placeholder="Name"
+              required
+              value={cardInfo.name}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+            />
+          </div>
+          <div className="form-group">
+              <input
+                type="tel"
+                name="expiry"
+                className="form-control"
+                placeholder="Valid Thru"
+                pattern="\d\d/\d\d"
+                required
+                value={cardInfo.expiry}
+                onChange={handleInputChange}
+                onFocus={handleInputFocus}
+              />
+          </div>
+          <div className="form-group">
             <input
               type="tel"
               name="cvc"
@@ -132,13 +132,13 @@ function CreditForm({connectCard, initialValue, initialAmount, customRef}) {
               onFocus={handleInputFocus}
             />
           </div>
-        </div>
-        {/* <input type="hidden" name="issuer" value={issuer} /> */}
-        <div className="form-actions">
-          <button className="btn btn-primary btn-block">Pay</button>
-        </div>
-      </form>
-      <NotificationContainer />
+          <div className="form-actions">
+            <button className="btn btn-pay">Check</button>
+          </div>
+        </form>
+        <NotificationContainer />
+        <button className='btn btn-close' onClick={onClose}><FontAwesomeIcon icon='fa-close' /></button>
+      </div>
     </div>
   );
 }

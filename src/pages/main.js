@@ -1,12 +1,15 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {NotificationContainer, NotificationManager} from 'react-notifications'
 
-import tickets from '../consts/tickets'
+import tickets from '../database/tickets'
 import CreditForm from '../components/CreditForm';
+import Ticket from '../components/Ticket';
 
 function Main() {
-  const [selectedId, setSelectedId] = useState(0)
+  const [selectedId, setSelectedId] = useState("")
   const [formVisible, setFormVisible] = useState(false)
   const navigate = useNavigate()
 
@@ -20,27 +23,38 @@ function Main() {
   }
 
   const handleBuy = () => {
+    const seletctedTickets = tickets.filter(ticket => ticket.id === selectedId)
+    if(seletctedTickets.length === 0){
+      NotificationManager.warning('Select the ticket', 'Wanning', 3000)
+      return
+    }
     setFormVisible(true)
   }
   
+  const handleClose = () => {
+    setFormVisible(false)
+  }
   return (
-    <div className="main">
-    <div className="ticket-container">
-      { tickets.map(({ id, name, price }) => {
-        return (
-          <div key={id} className="ticket" onClick={() => hadnleTicketClick(id)}>
-            <span className="name">{name}</span>
-            <span className="price">{`$${price}`}</span>
-          </div>
-        )
-      }) }
-    </div>
-    <button onClick={handleBuy}>Buy</button>
-    { formVisible && <CreditForm 
-      connectCard = {connectCard} 
-      initialValue = {{ name: '', number: '', expiry: '', cvc: ''}}
-      initialAmount = {1}
-    /> }
+    <div className='main'>
+      <div className='container'>
+        <h1 className='main-title'>Choose <FontAwesomeIcon icon='fa-bus-simple' /> ticket</h1>
+        <div className='tickets-container'>
+          { tickets.map((ticket) => {
+            return (
+              <Ticket key={ticket.id} isSelected={selectedId === ticket.id} ticket={ticket} onClick={hadnleTicketClick} />
+            )
+          }) }
+        </div>
+        <button className='btn btn-buy' onClick={handleBuy}><FontAwesomeIcon icon='fa-ticket' /> Buy Ticket</button>
+        { <CreditForm 
+          connectCard = {connectCard} 
+          initialValue = {{ name: '', number: '', expiry: '', cvc: ''}}
+          initialAmount = {1}
+          isVisible={formVisible}
+          onClose={handleClose}
+      /> }
+      <NotificationContainer />
+      </div>
   </div>
   );
 }
