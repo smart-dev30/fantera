@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBusSimple, faClock, faTicket, faCreditCard, faClose } from '@fortawesome/free-solid-svg-icons'
-library.add(faBusSimple, faClock, faTicket, faCreditCard, faClose)
+import { faBusSimple, faClock, faTicket, faCreditCard, faClose, faMoneyCheck, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+library.add(faBusSimple, faClock, faTicket, faCreditCard, faClose, faMoneyCheck, faCircleCheck)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

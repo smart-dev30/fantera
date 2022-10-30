@@ -7,7 +7,7 @@ const CreditCard = ({ cardInfo, value, isChecked, handleChange, handleDelete }) 
   };
 
   return (
-    <div className="card-item">
+    <div className="check-card">
       <input
         type="radio"
         className="custom-radio"
@@ -17,13 +17,12 @@ const CreditCard = ({ cardInfo, value, isChecked, handleChange, handleDelete }) 
       />
       <label className="label" htmlFor={value}>
         <CardDisplay number={cardInfo.number} expand={true} square={true} />
-        <p className="name">{cardInfo.name}</p>
-        <p className="issur">{cardInfo.issur}</p>
-        <p className="expiry">exp. {cardInfo.expiry}</p>
+        <div className='check-card__info'>
+          <p className="issur">{cardInfo.issur}</p>
+          <p className="name"><span>{cardInfo.name} | </span><span>exp. {cardInfo.expiry}</span></p>
+          <button className='delete' onClick={() => handleDelete(value)}>delete</button>
+        </div>
       </label>
-      <div>
-        <button onClick={() => handleDelete(value)}>delete</button>
-      </div>
     </div>
   );
 };
