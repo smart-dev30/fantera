@@ -37,6 +37,22 @@
   }
   &-total {
     width: 35%;
+    .check-item__title {
+      &.subtitle {
+        margin-bottom: 10px;
+      }
+    }
+    .d-flex {
+      margin-bottom: 25px;
+      &.s-margin {
+        margin-bottom: 5px;
+      }
+    }
+    .btn-order {
+      width: 100%;
+      height: initial;
+      padding: 10px 0;
+    }
   }
   &-card {
     border: 1px solid lightgreen;

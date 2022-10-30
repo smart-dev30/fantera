@@ -55,19 +55,21 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ```
 src
 ├── components
-│   ├── ExchangeItem       # ExchangeItem Component
-│   ├── ExchangeItemCard   # ExchangeItemCard Component
-│   ├── ExchangeTable      # ExchangeTable component
-│   └── index.ts           # export all components in `components` folder level
+│   ├── Border            # Ticket Border Component
+│   ├── CreditCard        # added Card Component
+│   ├── CreditForm        # check modal component
+│   └── Ticket            # Ticket Component
 │
-├── Constants              # contain constants
+├── database              # mock data
 │
-├── hooks                  # contain hooks
+├── utils                 # validation utils
 │
-├── pages                  # contain all web pages
-│   ├── ExchangeDetail     # Detail page
-│   └── Home               # Exchange table page
-└── App.tsx                # main page
+├── styles                # styles
+│
+├── pages                 # contain all web pages
+│   ├── main              # tickets page
+│   └── checkout          # check page
+└── App.js                # main page
 ```
 ## Learn More
 

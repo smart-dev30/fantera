@@ -35,6 +35,7 @@ function Checkout() {
 
   const connectCard = (issur, cardInfo) => {
    setCards([...cards, {issur, ...cardInfo}])
+   setFormVisible(false)
   }
 
   const handleClose = () => {
@@ -51,8 +52,8 @@ function Checkout() {
       <h2 className='check-title'><FontAwesomeIcon icon="fa-money-check"/> Checkout</h2>
       <div className='container'>
         <div className="check-item check-payment">
-          <p className="check-item__title">payment <FontAwesomeIcon icon="fa-circle-check" /></p>
-          <p className='check-item__title subtitle'> use credit / debit card </p>
+          <h3 className="check-item__title">payment <FontAwesomeIcon icon="fa-circle-check" /></h3>
+          <h4 className='check-item__title subtitle'> use credit / debit card </h4>
           <div className="check-payment__card">
             {
               cards.map((info, index) => 
@@ -70,30 +71,34 @@ function Checkout() {
           <button className='btn btn-add' onClick={addNewCard}> Add New Card </button>
         </div>
         <div className="check-item check-total">
-          <h1>{title}</h1>
-          <div className="row">
-            <p className="total-title">Total</p>
-            <p> {`$${totalPrice.toFixed(3)}`} </p> 
-          </div>  
-          <div className="row">
+          <div className='d-flex'>
+            <h3 className='check-item__title'>total</h3>
+            <h3 className='check-item__title'>{`$${totalPrice.toFixed(2)}`}</h3>
+          </div>
+          <h4 className='check-item__title subtitle'>tickets</h4>
+          <div className='d-flex'>
             <p>{`Resale Tickets: $${price}*${amount}`}</p>
-            <p> {`$${price * amount}`}</p> 
-          </div>  
-          <div>
-            <p>Notes From Seller</p>
-            <p> {notes}</p> 
-          </div>  
-          <p>Fees</p>
-          <div className="row">
+            <p>{`$${price * amount}`}</p>
+          </div>
+          <h4 className='check-item__title subtitle'>notes from seller</h4>
+          <div className='d-flex'>
+            <p>{notes}</p>
+          </div>
+          <h4 className='check-item__title subtitle'>fees</h4>
+          <div className='d-flex s-margin'>
             <p>{`Service Fee: $${(price*selectedFee.service).toFixed(4)}*${amount}`}</p>
             <p> {`$${(price*selectedFee.service * amount).toFixed(4)}`}</p> 
           </div>
-          <div className="row">
+          <div className="d-flex">
             <p>{`Order Processing Fee: `}</p>
             <p> {`$${ (price*selectedFee.process).toFixed(4) }`}</p> 
           </div>
-          
-          <button className='btn'>Place Order</button>
+          <h4 className='check-item__title subtitle'>delivery</h4>
+          <div className='d-flex'>
+            <p>Mobile Entry</p>
+            <p>Free</p>
+          </div>
+          <button className='btn btn-order'>Place Order</button>
         </div>
           <CreditForm 
             connectCard={connectCard} 

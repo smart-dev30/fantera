@@ -43,3 +43,8 @@ h1, h2, h3, h4, h5, p {
   transition: all 200ms linear;
   cursor: pointer;
 }
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
