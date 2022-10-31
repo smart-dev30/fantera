@@ -10,6 +10,7 @@
   .container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   &-item {
     background-color: #000;
@@ -25,21 +26,38 @@
     }
   }
   &-payment {
-    width: 60%;
+    width: 100%;
+    margin-bottom: 40px;
+    @include md("sd") {
+      width: 47%;
+      margin-bottom: initial;
+    }
+    @include md("md") {
+      width: 60%;
+    }
     .check-item__title {
       &.subtitle {
         padding-left: 20px;
       }
       svg {
-        color: greenyellow;
+        color: var(--green-light);
       }
     }
   }
   &-total {
-    width: 35%;
+    width: 100%;
+    @include md("sd") {
+      width: 50%;
+    }
+    @include md("md") {
+      width: 35%;
+    }
     .check-item__title {
       &.subtitle {
         margin-bottom: 10px;
+      }
+      &:last-child {
+        color: var(--yellow-2);
       }
     }
     .d-flex {
@@ -52,14 +70,26 @@
       width: 100%;
       height: initial;
       padding: 10px 0;
+      background-color: transparent;
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      &:hover {
+        color: var(--yellow-2);
+        transition: all 250ms linear;
+      }
     }
   }
   &-card {
-    border: 1px solid lightgreen;
+    border: 1px solid var(--white-gr);
     padding: 15px;
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    transition: all 250ms linear;
+    &.checked {
+      border: 1px solid var(--yellow);
+      transition: all 250ms linear;
+    }
     input {
       margin: 0;
       margin-right: 20px;
@@ -67,6 +97,8 @@
     label {
       display: flex;
       align-items: center;
+      width: calc(100% - 13px);
+      cursor: pointer;
     }
     &__info {
       margin-left: 30px;
@@ -90,5 +122,12 @@
   .btn-add {
     height: initial;
     padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    &:hover {
+      color: var(--yellow-2);
+      transition: all 250ms linear;
+    }
   }
 }

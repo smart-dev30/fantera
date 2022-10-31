@@ -5,6 +5,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 229.0,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -14,6 +15,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 230.0,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -23,6 +25,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 245.10,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -32,6 +35,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 245.10,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -41,6 +45,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 229.0,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -50,6 +55,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 230.0,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -59,6 +65,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 245.10,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },
@@ -68,6 +75,7 @@ const tickets = [
     duration: '30',
     time: '2:00 PM - 2:30 PM',
     price: 245.10,
+    delivery: true,
     notes:
       'xfr XFER Proof of least one doesof COVID-19 vaccination for ages 5 to 11 and guests ages 12 and up will be required to show proof of two COVID-19 vaccine doses or one close the Johnson & Johnson vaccine Masks must be work',
   },

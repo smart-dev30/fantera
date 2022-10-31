@@ -5,6 +5,7 @@ import CreditForm from '../components/CreditForm';
 import fee from '../database/fee';
 import CreditCard from '../components/CreditCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 function Checkout() {
   const location = useLocation();

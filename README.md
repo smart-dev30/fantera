@@ -25,18 +25,13 @@ You will also see any lint errors in the console.
 In order to test your credit card connect you shoud input valid card number.\
 Please use the following card numbers.
 ```
+5555 4444 3333 1111
 4111 1111 1111 1111
-
 3700 000000 00002
-
 3600 666633 3344
-
 6011 6011 6011 6611
-
 5066 9911 1111 1118
-
 6250 9460 0000 0016
-
 6062 8288 8866 6688
 ```
 

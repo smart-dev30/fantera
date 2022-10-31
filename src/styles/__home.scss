@@ -4,7 +4,10 @@
     text-align: center;
     color: var(--white-gr);
     font-size: 40px;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
+    @include md("xl") {
+      margin-bottom: 70px;
+    }
     svg {
       color: var(--yellow);
     }
@@ -12,9 +15,15 @@
   .tickets-container {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
     width: 100%;
     z-index: 2;
+    grid-template-columns: repeat(2, 1fr);
+    @include md("md") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include md("lg") {
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
   .ticket {
     text-align: center;
@@ -23,25 +32,17 @@
         transform: translateY(-10px);
         transition: all 250ms linear;
         &::after {
-          content: '';
-          position: absolute;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
           border-radius: 0;
-          z-index: -1;
-          display: block;
-          background-color: var(--white-gr);
-          opacity: 0.4;
           transition: all 250ms linear;
         }
       }
     }
     &-item {
         position: relative;
-        width: 200px;
         display: inline-block;
+        width: 95%;
         cursor: pointer;
         padding: 50px 0;
         text-align: center;
@@ -53,6 +54,9 @@
         text-transform: uppercase;
         color: var(--dark-blue);
         transition: all 250ms linear;
+        @include md("sm") {
+          width: 200px;
+        }
         &::before {
           content: '';
           position: absolute;
@@ -63,6 +67,20 @@
           z-index: -1;
           display: block;
           background-image: linear-gradient(335deg, var(--yellow), var(--yellow-2));
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: -100%;
+          left: 100%;
+          width: 100%;
+          height: 100%;
+          border-radius: 200%;
+          z-index: -1;
+          display: block;
+          background-color: var(--white-gr);
+          opacity: 0.4;
+          transition: all 250ms linear;
         }
         &__description {
           margin-bottom: 15px;
@@ -147,28 +165,20 @@
     margin-bottom: 30px;
   }
   .btn {
-    
-    // border-radius: 4px;
-    // height: 48px;
-    // font-size: 16px;
-    // font-weight: 700;
-    // padding: 0 35px;
-    // letter-spacing: 0.2px;
-    // display: inline-flex;
-    // align-items: center;
-    // justify-content: center;
-    // text-align: center;
-    // border: none;
-    // color: var(--dark-blue);
-    // background-color: var(--yellow);
-    // transition: all 200ms linear;
-    // cursor: pointer;
+    transition: all 250ms linear;
     &-buy {
       position: fixed;
-      top: 60%;
-      left: 0;
-      transform: rotate(-90deg);
       transform-origin: 0 0;
+      left: 50%;
+      top: 120px;
+      transform: translate(-50%, 0);
+      z-index: 10;
+      @include md("xl") {
+        left: 0;
+        top: 60%;
+        transform: rotate(-90deg);
+
+      }
       svg {
         margin-right: 20px;
       }

@@ -7,7 +7,7 @@ const CreditCard = ({ cardInfo, value, isChecked, handleChange, handleDelete }) 
   };
 
   return (
-    <div className="check-card">
+    <div className={isChecked ? 'check-card checked' : 'check-card'}>
       <input
         type="radio"
         className="custom-radio"
